@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100610256015",
+    "project_id": "mynotes-dhruva",
+    "storage_bucket": "mynotes-dhruva.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100610256015:android:4df7265ee533e928bcd4fa",
+        "android_client_info": {
+          "package_name": "com.example.mynotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVIooJeF5LooHm-x2p4gozkQGGajXm6UE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
