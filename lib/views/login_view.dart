@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
 
 import 'package:mynotes/constants/routes.dart';
+import 'package:mynotes/utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -67,15 +68,16 @@ class _LoginViewState extends State<LoginView> {
                   if (e.code == 'wrong-password') {
                     devtools.log('Wrong password');
                   } else if (e.code == 'invalid-credential') {
-                    devtools.log('Invalid credentials');
-                  } else if (e.code == 'user-not-found') {
-                    devtools.log('No user found for that email.');
+                    await showErrorDialog(context, 'Invalid credentials');
                   } else {
-                    devtools.log('Authentication failed: ${e.message}');
+                    await showErrorDialog(context, 'Error: ${e.code}');
                   }
+                } catch (e){
+                  await showErrorDialog(context, e.toString());
                 }
               },
-              child: const Text('Login')),
+              child: const Text('Login')
+            ),
           TextButton(
               onPressed: () {
                 Navigator.of(context).pushNamedAndRemoveUntil(
@@ -83,9 +85,12 @@ class _LoginViewState extends State<LoginView> {
                   (route) => false,
                 );
               },
-              child: const Text('Not yet registered? Register here!'))
+              child: const Text('Not yet registered? Register here!')
+            ),
         ],
       ),
     );
   }
 }
+
+
